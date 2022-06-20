@@ -8,3 +8,8 @@ server.listen()
 
 clients = []
 names = []
+
+def broadcast(message):
+    for client in clients:
+        client.send(message)
+    
