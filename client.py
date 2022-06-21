@@ -1,0 +1,6 @@
+import socket, threading
+
+name = input("Enter your name: ")
+
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client.connect(('127.0.0.1',9998))
