@@ -24,7 +24,7 @@ def handle(client):
             clients.remove(client)
             client.close()
             name=names[index]
-            braodcast("{} left!".format(name).encode("ascii"))
+            broadcast("{} left!".format(name).encode("ascii"))
             names.remove(name)
             break
 
