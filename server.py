@@ -20,7 +20,7 @@ def handle(client):
 			broadcast(message)
 		except:
 		    index = clients.index(client)
-		    clients.remove(client)
+            clients.remove(client)
 		    client.close()
 		    name = names[index]
 		    broadcast('{} left!'.format(name).encode('ascii'))
