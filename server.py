@@ -1,4 +1,5 @@
 import socket, threading
+
 host = '127.0.0.1'
 port = 9998
 
@@ -10,22 +11,22 @@ clients = []
 names = []
 
 def broadcast(message):
-    for client in clients:
-        client.send(message)
-    
+	for client in clients:
+		client.send(message)
+
 def handle(client):
-	while True:
-		try:
-			message = client.recv(1024)
-			broadcast(message)
-		except:
-		    index = clients.index(client)
+    while True:
+        try:
+            message=client.recv(1024)
+            braodcast(message)
+        except:
+            index=clients.index(client)
             clients.remove(client)
-		    client.close()
-		    name = names[index]
-		    broadcast('{} left!'.format(name).encode('ascii'))
-		    names.remove(name)
-		    break
+            client.close()
+            name=names[index]
+            braodcast("{} left!".format(name).encode("ascii"))
+            names.remove(name)
+            break
 
 def recieve():
 	while True:
